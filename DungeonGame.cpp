@@ -12,8 +12,8 @@ using namespace std;
 #define DOWN 115 /* S */
 #define LEFT 97 /* A */
 #define STOP 113 /* Q */
-#define NUM_ROWS 5
-#define NUM_COLS 7
+#define NUM_ROWS 50
+#define NUM_COLS 75
 
 #define RANDOM false
 
@@ -24,7 +24,7 @@ class Board {
 private:
 	static const int rows = NUM_ROWS;
 	static const int cols = NUM_COLS;
-	static const int numObstacles = 10;//2100;
+	static const int numObstacles = 2100;
 	char board[rows][cols];
 
 	bool fillBoard() {
@@ -182,7 +182,6 @@ public:
 		if(hasVisited[x][y] == true) return;
 		hasVisited[x][y] = true;
 
-		//cout << "At [" << x << "][" << y << "]" << endl;
 		if(!found) {
 			if(validMove(x + 1, y)) findSolution(found, x + 1, y);
 			if(validMove(x, y + 1)) findSolution(found, x, y + 1);
@@ -190,7 +189,6 @@ public:
 			if(validMove(x, y - 1)) findSolution(found, x, y - 1);
 		}
 
-		//if(found) board.setSlot('X',x,y);
 	}
 
 	bool hasASolution() {
